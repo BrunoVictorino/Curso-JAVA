@@ -1,8 +1,6 @@
 package application;
 
 import entities.Product;
-
-import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -17,17 +15,20 @@ public class Program1 {
         String name = sc.nextLine();
         System.out.print("Price: ");
         double price = sc.nextDouble();
-        System.out.print("Quantity in Stock: ");
-        int quantity = sc.nextInt();
 
-        Product product = new Product(name, price, quantity);
+        Product product = new Product(name, price);
+
+        product.setName("Computer");
+        System.out.println("Update name: " + product.getName());
+        product.setPrice(1200.00);
+        System.out.println("Update price: " + product.getPrice());
 
         System.out.println();
         System.out.println("Product data: " + product);
 
         System.out.println();
         System.out.print("Enter the number of products to be added in stock: ");
-        quantity = sc.nextInt();
+        int quantity = sc.nextInt();
         product.addProducts(quantity);
 
         System.out.println();
